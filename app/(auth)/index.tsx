@@ -1,6 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient"; // Import LinearGradient
-import SignUp from "@/components/auth/SignUp";
+import SignUp from "@/app/(auth)/SignUp";
+import { Slot } from "expo-router";
 
 export default function HomeScreen() {
   return (
@@ -12,6 +13,7 @@ export default function HomeScreen() {
         className="px-3 h-screen"
       >
         <View className="flex justify-center min-h-screen ">
+          {/* <Text>index</Text> */}
           <SignUp />
         </View>
       </LinearGradient>
