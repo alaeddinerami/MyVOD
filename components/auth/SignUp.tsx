@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BlurView } from "expo-blur";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as Yup from "yup";
+import { Link } from "expo-router";
 
 const validationSchema = Yup.object().shape({
   fullName: Yup.string().trim()
@@ -122,7 +123,7 @@ const SignUp: React.FC = () => {
         </View>
 
         <TouchableOpacity
-          className="w-full py-3 bg-red-700 rounded-lg mt-4"
+          className="w-full py-3 bg-red-800 rounded-lg mt-4"
           onPress={handleSubmit}
         >
           <Text className="text-center text-white font-semibold">Sign Up</Text>
@@ -138,7 +139,9 @@ const SignUp: React.FC = () => {
               console.log("Navigate to Login Screen");
             }}
           >
+            <Link href={'./components/Login'}>
             <Text className="text-red-900">Log In</Text>
+            </Link>
           </TouchableOpacity>
         </View>
       </View>
