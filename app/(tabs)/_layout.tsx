@@ -9,6 +9,7 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Entypo from '@expo/vector-icons/Entypo';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -42,6 +43,14 @@ export default function TabLayout() {
           title: 'Home',
           headerShown: false,
           tabBarIcon: ({ color }) => <Entypo name="home" size={30} color="red" />,
+        }}
+      />
+      <Tabs.Screen
+        name="favorite"
+        options={{
+          title: 'Favorite',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <MaterialIcons name="favorite" size={24} color="black" />,
         }}
       />
       <Tabs.Screen
