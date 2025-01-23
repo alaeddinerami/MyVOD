@@ -7,6 +7,8 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Entypo from '@expo/vector-icons/Entypo';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -14,6 +16,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        tabBarShowLabel:false,
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
@@ -26,16 +29,26 @@ export default function TabLayout() {
         }),
       }}>
       <Tabs.Screen
+        name="film"
+        options={{
+          title: 'Film',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <FontAwesome5 name="film" size={28} color="red" />,
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Entypo name="home" size={30} color="red" />,
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
           title: 'Explore',
+      
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />

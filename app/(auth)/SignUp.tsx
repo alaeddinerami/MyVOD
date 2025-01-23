@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BlurView } from "expo-blur";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as Yup from "yup";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const validationSchema = Yup.object().shape({
   fullName: Yup.string().trim()
@@ -48,6 +48,7 @@ const SignUp: React.FC = () => {
   const handleSubmit = async () => {
     if (await validateForm()) {
       console.log("Form submitted successfully!");
+      router.push('/(tabs)')
     } else {
       console.log("Form contains errors. Please fix them and try again.");
     }

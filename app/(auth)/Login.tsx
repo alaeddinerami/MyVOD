@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BlurView } from "expo-blur";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as Yup from "yup";
-import { Link, Stack } from "expo-router";
+import { Link, router, Stack } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 
 const validationSchema = Yup.object().shape({
@@ -35,6 +35,8 @@ const Login: React.FC = () => {
   const handleSubmit = async () => {
     if (await validateForm()) {
       console.log("Login successful!");
+      router.push('/(tabs)')
+      
     } else {
       console.log("Form contains errors. Please fix them and try again.");
     }
