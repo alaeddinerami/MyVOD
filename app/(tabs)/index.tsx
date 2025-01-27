@@ -1,13 +1,18 @@
-import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import Search from '@/components/Search'
+import React, { useState } from 'react'
+import {  ScrollView, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function index() {
-   
   return (
+    <SafeAreaView>
+
     <ScrollView >
-      <View>
-        <Text className='text-white'>index</Text>
+      <View>       
+         
       </View>
     </ScrollView>
+
+    </SafeAreaView>
   )
 }
