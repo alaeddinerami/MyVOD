@@ -3,7 +3,7 @@ import { ScrollView, Text, View, Image, Dimensions, TouchableOpacity } from 'rea
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Swiper from 'react-native-swiper'; // Import Swiper
 import { useRouter } from 'expo-router';
-import RNPickerSelect from 'react-native-picker-select';
+import GenreFilter from '@/components/GenreFilter'; // Import GenreFilter
 import FilmCard from '@/components/filmCard';
 
 const { width } = Dimensions.get('window');
@@ -26,8 +26,9 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-gray-900">
-      <ScrollView className="px-4">
-      <View className="mt-4 h-[200px]">
+      <ScrollView className="">
+
+        <View className="mt-4 h-[200px]">
           <Swiper
             showsButtons={false}
             autoplay
@@ -35,7 +36,7 @@ export default function HomeScreen() {
             showsPagination={true}
             paginationStyle={{
               bottom: 10,
-              height:0,
+              height: 0,
             }}
             dotStyle={{
               backgroundColor: 'rgba(255, 255, 255, 0.3)',
@@ -69,35 +70,17 @@ export default function HomeScreen() {
               </TouchableOpacity>
             ))}
           </Swiper>
-        </View>
 
-        <View className="mt-4">
-          <Text className="text-lg font-bold text-white">Filter by Genre</Text>
-          <RNPickerSelect
-            onValueChange={(value) => setSelectedGenre(value)}
-            items={[
-              { label: 'All', value: 'All' },
-              { label: 'Sci-Fi', value: 'Sci-Fi' },
-              { label: 'Action', value: 'Action' },
-              { label: 'Animation', value: 'Animation' },
-            ]}
-            value={selectedGenre}
-            style={{
-              inputIOS: { backgroundColor: 'white', padding: 10, borderRadius: 5 },
-              inputAndroid: { backgroundColor: 'white', padding: 10, borderRadius: 5 },
-            }}
-          />
         </View>
+          <GenreFilter selectedGenre={selectedGenre} onChange={setSelectedGenre} />
 
-        
-        <Text className='text-white'>sdfb</Text>
-        <View className="mt-6 bg-white">
-          <Text className="text-xl font-bold text-white mb-2">All Movies</Text>
-          <View className="flex flex-row flex-wrap gap-3">
+        <View className=' flex-wrap  gap-2 ' >
+          <Text className="text-xl font-bold  mb-2 text-white">All Movies</Text>
+        <View className='justify-center  flex-row flex-wrap gap-2' >
             {filteredMovies.map((movie) => (
               <FilmCard key={movie.id} film={movie} onPress={() => router.push(`/film/${movie.id}`)} />
             ))}
-          </View>
+        </View>
         </View>
       </ScrollView>
     </SafeAreaView>

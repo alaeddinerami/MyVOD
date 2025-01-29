@@ -9,7 +9,7 @@ type FilmCardProps = {
 const FilmCard = ({ onPress, film }: FilmCardProps) => {
   return (
     <TouchableOpacity onPress={() => onPress()} activeOpacity={0.7}>
-      <View className="bg-white h-64 shadow-lg w-[180px] mt-4 relative">
+      <View className="bg-white h-64 shadow-lg w-[175px] mt-4 relative">
         <Image
           source={require('../assets/images/event.jpg')} 
           className="h-full w-full"
