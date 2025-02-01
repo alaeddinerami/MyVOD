@@ -22,7 +22,7 @@ const CommentSection = ({ comments, onAddComment }: CommentSectionProps) => {
   };
 
   return (
-    <View className="mt-6">
+    <View className="mt-6 px-4">
       <Text className="text-lg font-semibold text-white">Leave a Comment:</Text>
       <TextInput
         className="border border-red-600 p-3 rounded-lg mt-2 text-gray-400 "

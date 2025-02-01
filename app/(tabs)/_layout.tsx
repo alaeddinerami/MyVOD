@@ -12,11 +12,13 @@ import Entypo from "@expo/vector-icons/Entypo";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { FavoriteProvider } from "@/context/FavoriteContext";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
+    <FavoriteProvider>
     <Tabs
       screenOptions={{
         tabBarShowLabel: false,
@@ -38,7 +40,7 @@ export default function TabLayout() {
           title: "Film",
           headerShown: false,
           tabBarIcon: ({focused, color }) => (
-            <AntDesign name="search1" size={28}  color={focused ? "red":"black"} />
+            <AntDesign name="search1" size={28}  color={focused ? "red":"white"} />
           ),
         }}
       />
@@ -48,17 +50,17 @@ export default function TabLayout() {
           title: "Home",
           headerShown: false,
           tabBarIcon: ({ focused, color }) => (
-            <Entypo name="home" size={30} color={focused ? "red" : "black"} />
+            <Entypo name="home" size={30} color={focused ? "red" : "white"} />
           ),
         }}
       />
       <Tabs.Screen
-        name="favorite"
+        name="favorites"
         options={{
-          title: "Favorite",
+          title: "Favorites",
           headerShown: false,
           tabBarIcon: ({focused, color }) => (
-            <MaterialIcons name="favorite" size={28} color={focused ?"red":"black"} />
+            <MaterialIcons name="favorite" size={28} color={focused ?"red":"white"} />
           ),
         }}
       />
@@ -68,10 +70,11 @@ export default function TabLayout() {
           title: "Profile",
 
           tabBarIcon: ({focused, color }) => (
-            <FontAwesome name="user" size={28} color={focused ? "red" :"black"} />
+            <FontAwesome name="user" size={28} color={focused ? "red" :"white"} />
           ),
         }}
       />
     </Tabs>
+    </FavoriteProvider>
   );
 }
