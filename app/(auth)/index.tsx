@@ -13,7 +13,6 @@ export default function HomeScreen() {
         className="px-3 h-screen"
       >
         <View className="flex justify-center min-h-screen ">
-          {/* <Text>index</Text> */}
           <SignUp />
         </View>
       </LinearGradient>
