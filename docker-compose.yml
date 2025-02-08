@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  myvod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myvod-expo
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "8081:8081"  
+      - "19000:19000" 
+      - "19001:19001" 
+      - "19002:19002"
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
+    command: npm start --tunnel  
