@@ -5,11 +5,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import StarRating from 'react-native-star-rating-widget';
 import CommentSection from '@/components/CommentSection';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { useFavorites } from '@/context/FavoriteContext'; // ✅ Import favorites context
+import { useFavorites } from '@/context/FavoriteContext'; 
 
 export default function FilmDetails() {
   const { id } = useLocalSearchParams();
-  const { favorites, toggleFavorite } = useFavorites(); // ✅ Use global favorites context
+  const { favorites, toggleFavorite } = useFavorites(); 
 
   const film = {
     id: Number(id), 
@@ -42,7 +42,6 @@ export default function FilmDetails() {
         <View className="relative">
           <Image source={film.imageUrl} className="w-full h-72 rounded-lg" resizeMode="cover" />
 
-          {/* ✅ Favorite Button */}
           <TouchableOpacity
             onPress={() => toggleFavorite(film)}
             className="absolute top-4 right-4 bg-gray-800 p-2 rounded-full"

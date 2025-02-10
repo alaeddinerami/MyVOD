@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { Link, router, Stack } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { loginService } from "@/services/loginServices"; // Ensure you have this service
+import { loginService } from "@/services/loginServices"; 
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().trim()

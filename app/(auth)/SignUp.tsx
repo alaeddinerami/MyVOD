@@ -77,7 +77,6 @@ const SignUp: React.FC = () => {
         text2: 'Account created successfully',
       });
 
-      // Clear form and navigate
       setFullName('');
       setEmail('');
       setPassword('');
@@ -94,7 +93,6 @@ const SignUp: React.FC = () => {
   const handleApiError = (error: any) => {
     const errorMessage = error.message || 'Registration failed';
     
-    // Handle specific error cases
     if (errorMessage.toLowerCase().includes('already exists')) {
       setErrors({ ...errors, email: errorMessage });
     } else if (errorMessage.toLowerCase().includes('validation')) {
@@ -115,7 +113,6 @@ const SignUp: React.FC = () => {
       <Text className="text-3xl font-semibold mb-4 text-white">Sign Up</Text>
 
       <View className="w-full max-w-md space-y-4">
-        {/* Full Name Input */}
         <View>
           <Text className="text-xl font-medium text-white">Full Name</Text>
           <TextInput
@@ -132,7 +129,6 @@ const SignUp: React.FC = () => {
           )}
         </View>
 
-        {/* Email Input */}
         <View>
           <Text className="text-xl font-medium text-white">Email</Text>
           <TextInput
@@ -150,7 +146,6 @@ const SignUp: React.FC = () => {
           )}
         </View>
 
-        {/* Password Input */}
         <View>
           <Text className="text-xl font-medium text-white">Password</Text>
           <View className="relative">
@@ -176,7 +171,6 @@ const SignUp: React.FC = () => {
           )}
         </View>
 
-        {/* Confirm Password Input */}
         <View>
           <Text className="text-xl font-medium text-white">Confirm Password</Text>
           <View className="relative">
@@ -204,14 +198,12 @@ const SignUp: React.FC = () => {
           )}
         </View>
 
-        {/* Error Message */}
         {errors.api && (
           <Text className="text-red-500 text-sm mt-2 text-center">
             {errors.api}
           </Text>
         )}
 
-        {/* Submit Button */}
         <TouchableOpacity
           className="w-full py-3 bg-red-800 rounded-lg mt-4"
           onPress={handleSubmit}
@@ -224,7 +216,6 @@ const SignUp: React.FC = () => {
           )}
         </TouchableOpacity>
 
-        {/* Login Link */}
         <View className="w-full flex flex-row justify-center items-center mt-6">
           <Text className="text-white text-center">
             Already have an account?
